@@ -51,7 +51,7 @@ public class ClientTransform extends AbstractClassTransform{
             e.printStackTrace();
         }
 
-        return theClass.name.equals("client") && utfIdx != 0;
+        return theClass.name.equals("client") || utfIdx != 0;
     }
 
     @Override
