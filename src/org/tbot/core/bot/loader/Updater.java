@@ -4,6 +4,7 @@ import org.objectweb.asm.tree.ClassNode;
 import org.tbot.core.bot.config.settings.BotInfo;
 import org.tbot.core.bot.config.settings.UpdaterConfiguration;
 import org.tbot.core.bot.loader.asm.modifiers.adapters.tree.generic.AbstractClassTransform;
+import org.tbot.core.bot.loader.commons.transformations.ClientTransform;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -74,7 +75,7 @@ public class Updater {
         }
 
         //TODO: Add the transformation classes
-
+        transforms.add(new ClientTransform());
 
         //Run the transforms
         runTransforms();
