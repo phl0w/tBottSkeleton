@@ -56,8 +56,12 @@ public abstract class AbstractClassTransform extends Transform implements Opcode
             //Set up the ClassWriter.
             cw = new ClassWriter(ClassWriter.COMPUTE_MAXS | ClassWriter.COMPUTE_FRAMES);
 
+
             //Delegate cn method calls and data to 'cw'.
             cn.accept(cw);
+
+            //Set up the ClassReader
+            cr = new ClassReader(cw.toByteArray());
 
             //Set the current adapter to be the ClassWriter.
             currentAdapter = cw;
@@ -102,7 +106,7 @@ public abstract class AbstractClassTransform extends Transform implements Opcode
 
     public void applyChanges(){
         //Apply transformations from the top of the hierarchy backwards.
-        cr.accept(currentAdapter, 0);
+        cr.accept(currentAdapter, ClassReader.SKIP_DEBUG | ClassReader.SKIP_FRAMES);
 
         //Have the new class bytes ready to go.
         classBytes = cw.toByteArray();

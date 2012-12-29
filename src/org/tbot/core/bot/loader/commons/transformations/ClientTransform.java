@@ -7,6 +7,7 @@ import org.apache.bcel.generic.ClassGen;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.tree.ClassNode;
 
+import org.tbot.core.bot.config.Logger;
 import org.tbot.core.bot.loader.asm.modifiers.adapters.tree.generic.AbstractClassTransform;
 
 import java.io.ByteArrayInputStream;
@@ -36,7 +37,11 @@ public class ClientTransform extends AbstractClassTransform{
 
     @Override
     public boolean accept(ClassNode theClass) {
+        Logger.setAppName("ClientTransform");
+        Logger.printlnInfo("Finding client.class");
+
         ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_FRAMES | ClassWriter.COMPUTE_MAXS);
+
         theClass.accept(cw);
 
         DataInputStream dis = new DataInputStream(new ByteArrayInputStream(cw.toByteArray()));
@@ -52,13 +57,13 @@ public class ClientTransform extends AbstractClassTransform{
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        return theClass.name.equals("client") || utfIdx != 0;
+        Logger.printlnInfo("Class: " + theClass.name);
+        return theClass.name.equals("client");
     }
 
     @Override
     public void runTransform() {
-
+        addInterface("com/tbot/core/hooks/Client");
     }
 
     public Object queryProduct(String param) {

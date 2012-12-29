@@ -1,6 +1,7 @@
 package org.tbot.core.bot.loader;
 
 import org.objectweb.asm.tree.ClassNode;
+import org.tbot.core.bot.config.Logger;
 import org.tbot.core.bot.config.settings.BotInfo;
 import org.tbot.core.bot.config.settings.UpdaterConfiguration;
 import org.tbot.core.bot.loader.asm.modifiers.adapters.tree.generic.AbstractClassTransform;
@@ -42,10 +43,10 @@ public class Updater {
     private static JarConstruct jc;
 
     //The transformation classes
-    private static ArrayList<AbstractClassTransform> transforms = new ArrayList<AbstractClassTransform>();
+    private static volatile ArrayList<AbstractClassTransform> transforms = new ArrayList<AbstractClassTransform>();
 
     //The transformed classes
-    protected HashMap<String, ClassNode> injClasses = new HashMap<String, ClassNode>();
+    protected volatile HashMap<String, ClassNode> injClasses = new HashMap<String, ClassNode>();
 
     //Keep UpdaterConfiguration.ADAPT as default for the updater flags
     private int flags = UpdaterConfiguration.ADAPT;
@@ -54,18 +55,19 @@ public class Updater {
     /**
      * Constructs an Updater instance.
      *
-     * @param flags - To notify the way the updater operates.
-     *              - See UpdaterConfiguration for a set of flags.
+     * @param flags To notify the way the updater operates.
+     * @param path The path to the JAR.
      *
      */
-    public Updater(final int flags){
+    public Updater(final String path, final int flags){
         this.flags = flags;
+        Logger.setAppName("Updater");
 
 
         if((flags & UpdaterConfiguration.ADAPT) != 0){
 
             //Startup the JarConstruct
-            jc = new JarConstruct(BotInfo.JAR_PATH);
+            jc = new JarConstruct(path);
 
             //Load all of the classes and store it into a HashMap
             jc.loadClasses();

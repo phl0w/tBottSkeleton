@@ -2,6 +2,8 @@ package org.tbot.core;
 
 import org.tbot.core.bot.config.Logger;
 import org.tbot.core.bot.config.settings.BotInfo;
+import org.tbot.core.bot.config.settings.UpdaterConfiguration;
+import org.tbot.core.bot.loader.Updater;
 import org.tbot.core.net.Downloader;
 import org.tbot.core.net.NRCrawler;
 
@@ -58,6 +60,8 @@ public class Boot{
 
                 Downloader.downloadFile(jarURL, BotInfo.JAR_PATH, false);
                 Logger.printlnInfo("Download complete.");
+
+                Updater u = new Updater(BotInfo.JAR_PATH, UpdaterConfiguration.ADAPT);
             }
 
         }
