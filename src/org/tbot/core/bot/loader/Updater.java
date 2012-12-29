@@ -3,7 +3,7 @@ package org.tbot.core.bot.loader;
 import org.objectweb.asm.tree.ClassNode;
 import org.tbot.core.bot.config.settings.BotInfo;
 import org.tbot.core.bot.config.settings.UpdaterConfiguration;
-import org.tbot.core.bot.loader.asmbcel.modifiers.adapters.tree.generic.AbstractClassTransform;
+import org.tbot.core.bot.loader.asm.modifiers.adapters.tree.generic.AbstractClassTransform;
 
 import java.util.ArrayList;
 import java.util.HashMap;

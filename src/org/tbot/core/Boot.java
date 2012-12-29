@@ -1,6 +1,6 @@
 package org.tbot.core;
 
-import org.tbot.core.bot.config.*;
+import org.tbot.core.bot.config.Logger;
 import org.tbot.core.bot.config.settings.BotInfo;
 import org.tbot.core.net.Downloader;
 import org.tbot.core.net.NRCrawler;

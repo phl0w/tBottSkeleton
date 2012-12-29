@@ -2,11 +2,9 @@ package org.tbot.core.bot.loader;
 
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.tree.ClassNode;
-
-import org.tbot.core.bot.config.*;
-
+import org.tbot.core.bot.config.Logger;
 import org.tbot.core.bot.config.settings.BotInfo;
-import org.tbot.core.hierarchy.*;
+import org.tbot.core.hierarchy.Constructable;
 
 import java.io.IOException;
 import java.net.MalformedURLException;

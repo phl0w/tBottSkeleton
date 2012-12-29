@@ -1,4 +1,4 @@
-package org.tbot.core.bot.loader.asmbcel.analysis.math;
+package org.tbot.core.bot.loader.asm.analysis.math;
 
 
 /**

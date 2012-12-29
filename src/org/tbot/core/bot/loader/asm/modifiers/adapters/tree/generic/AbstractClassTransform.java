@@ -5,9 +5,9 @@ import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.ClassNode;
-
-import org.tbot.core.bot.loader.asm.modifiers.adapters.tree.*;
-import org.tbot.core.hierarchy.*;
+import org.tbot.core.bot.loader.asm.modifiers.adapters.tree.AddInterfaceAdapter;
+import org.tbot.core.bot.loader.asm.modifiers.adapters.tree.AddMethodAdapter;
+import org.tbot.core.hierarchy.Constructable;
 
 /**
  * This file is part of tBot.

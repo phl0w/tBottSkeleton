@@ -2,8 +2,10 @@ package org.tbot.core.net;
 
 import org.tbot.core.bot.config.settings.BotInfo;
 
-import java.io.*;
-import java.net.MalformedURLException;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.net.URL;
 
 /**

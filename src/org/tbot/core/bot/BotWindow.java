@@ -1,6 +1,7 @@
 package org.tbot.core.bot;
 
-import org.tbot.core.hierarchy.*;
+import org.tbot.core.hierarchy.Buildable;
+import org.tbot.core.hierarchy.Constructable;
 
 import javax.swing.*;
 import java.applet.Applet;

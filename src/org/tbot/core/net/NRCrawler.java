@@ -1,7 +1,7 @@
 package org.tbot.core.net;
 
+import org.tbot.core.bot.config.Logger;
 import org.tbot.core.bot.config.settings.BotInfo;
-import org.tbot.core.bot.config.*;
 
 /**
  * This file is part of tBot.

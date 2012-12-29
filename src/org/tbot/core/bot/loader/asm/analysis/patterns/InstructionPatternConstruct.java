@@ -1,9 +1,8 @@
-package org.tbot.core.bot.loader.asmbcel.analysis.patterns;
+package org.tbot.core.bot.loader.asm.analysis.patterns;
 
 import org.objectweb.asm.tree.AbstractInsnNode;
 import org.objectweb.asm.tree.ClassNode;
-
-import org.tbot.core.hierarchy.*;
+import org.tbot.core.hierarchy.Constructable;
 
 /**
  * This file is part of tBot.
