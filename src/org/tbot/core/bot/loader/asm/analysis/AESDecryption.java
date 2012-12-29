@@ -1,4 +1,4 @@
-package org.tbot.core.bot.loader.asm.analysis;
+package org.tbot.core.bot.loader.asmbcel.analysis;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;

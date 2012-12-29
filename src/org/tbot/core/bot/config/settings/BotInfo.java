@@ -21,8 +21,20 @@ package org.tbot.core.bot.config.settings;
  */
 public interface BotInfo {
 
+
+    /**
+     * Folder path
+     */
+    public final String FOLDER_PATH = "C://tBot//";
+
     /**
      * The path to the JAR.
      */
-    public final String JAR_PATH = "C://client.jar";
+    public final String JAR_PATH = FOLDER_PATH + "client.jar";
+
+
+    /**
+     * The base URL for Near-Reality
+     */
+    public final String NEAR_REALITY_URL_BASE = "http://www.nrclient.com/webclient/";
 }

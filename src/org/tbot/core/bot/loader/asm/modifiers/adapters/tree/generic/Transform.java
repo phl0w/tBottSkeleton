@@ -1,4 +1,4 @@
-package org.tbot.core.bot.loader.asm.modifiers.adapters.tree.modifiers.generic;
+package org.tbot.core.bot.loader.asm.modifiers.adapters.tree.generic;
 
 import org.objectweb.asm.tree.ClassNode;
 import org.tbot.core.bot.config.settings.Filter;

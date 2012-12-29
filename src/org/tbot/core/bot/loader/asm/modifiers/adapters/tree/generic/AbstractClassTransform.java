@@ -1,4 +1,4 @@
-package org.tbot.core.bot.loader.asm.modifiers.adapters.tree.modifiers.generic;
+package org.tbot.core.bot.loader.asm.modifiers.adapters.tree.generic;
 
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;

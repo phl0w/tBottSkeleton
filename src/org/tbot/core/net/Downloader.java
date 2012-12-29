@@ -1,9 +1,8 @@
 package org.tbot.core.net;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import org.tbot.core.bot.config.settings.BotInfo;
+
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -34,22 +33,33 @@ public class Downloader {
      * @param forceDownload - Forces a download.
      */
     public static void downloadFile(String url, String outputFileDir,
-                                    boolean forceDownload) throws MalformedURLException, IOException {
-        if (forceDownload) {
-            StringBuffer sb = new StringBuffer(url);
-            sb.append("?dl=1");
-            url = sb.toString();
+                                    boolean forceDownload){
+
+        try{
+            if (forceDownload) {
+                StringBuffer sb = new StringBuffer(url);
+                sb.append("?dl=1");
+                url = sb.toString();
+            }
+
+            File f = new File(BotInfo.FOLDER_PATH);
+            f.mkdirs();
+
+            BufferedInputStream in = new BufferedInputStream(
+                    new URL(url).openStream());
+            FileOutputStream fos = new FileOutputStream(outputFileDir);
+
+            BufferedOutputStream bout = new BufferedOutputStream(fos, 100);
+            byte[] data = new byte[100];
+            int x = 0;
+            while ((x = in.read(data, 0, 100)) >= 0) {
+                bout.write(data, 0, x);
+            }
+            bout.close();
+            in.close();
+
+        }catch (Exception ex){
+            ex.printStackTrace();
         }
-        BufferedInputStream in = new BufferedInputStream(
-                new URL(url).openStream());
-        FileOutputStream fos = new FileOutputStream(outputFileDir);
-        BufferedOutputStream bout = new BufferedOutputStream(fos, 100);
-        byte[] data = new byte[100];
-        int x = 0;
-        while ((x = in.read(data, 0, 100)) >= 0) {
-            bout.write(data, 0, x);
-        }
-        bout.close();
-        in.close();
     }
 }

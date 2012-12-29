@@ -1,6 +1,9 @@
 package org.tbot.core;
 
 import org.tbot.core.bot.config.*;
+import org.tbot.core.bot.config.settings.BotInfo;
+import org.tbot.core.net.Downloader;
+import org.tbot.core.net.NRCrawler;
 
 
 /**
@@ -32,8 +35,32 @@ public class Boot{
 
 
     public static void main(String[]args){
-         Logger.setAppName("Boot");
-         Logger.printlnInfo("Starting up...");
+        Logger.setAppName("Boot");
+        Logger.printlnInfo("Starting up...");
+
+        if(!(args.length == 0)){
+
+            if(args[0].equals("-nrforceload")){
+
+                Logger.setAppName("nrforceload");
+                Logger.printlnInfo("Forcing Near Reality load..");
+
+                Logger.setAppName("Boot");
+
+                NRCrawler nrCrawler = new NRCrawler();
+
+                String clazzName = nrCrawler.getMainClassName();
+
+                String jarURL = nrCrawler.getJarURL();
+
+                Logger.setAppName("Downloader");
+                Logger.printlnInfo("Downloading JAR....");
+
+                Downloader.downloadFile(jarURL, BotInfo.JAR_PATH, false);
+                Logger.printlnInfo("Download complete.");
+            }
+
+        }
 
     }
 

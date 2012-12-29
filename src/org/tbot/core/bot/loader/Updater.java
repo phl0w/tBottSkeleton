@@ -3,7 +3,7 @@ package org.tbot.core.bot.loader;
 import org.objectweb.asm.tree.ClassNode;
 import org.tbot.core.bot.config.settings.BotInfo;
 import org.tbot.core.bot.config.settings.UpdaterConfiguration;
-import org.tbot.core.bot.loader.asm.modifiers.adapters.tree.modifiers.generic.AbstractClassTransform;
+import org.tbot.core.bot.loader.asmbcel.modifiers.adapters.tree.generic.AbstractClassTransform;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -69,6 +69,8 @@ public class Updater {
             //Load all of the classes and store it into a HashMap
             jc.loadClasses();
 
+
+
         }
 
         //TODO: Add the transformation classes
@@ -97,6 +99,7 @@ public class Updater {
 
             //Loop through the classes.
             for(ClassNode cn : getJar().loadedClassNodes.values()){
+
 
                 //Allow a ClassNode to be processed IF the Transformation class filter accepts it.
                 if(act.accept(cn)){

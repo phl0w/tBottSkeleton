@@ -1,4 +1,4 @@
-package org.tbot.core.bot.loader.asm.analysis.patterns;
+package org.tbot.core.bot.loader.asmbcel.analysis.patterns;
 
 import org.objectweb.asm.tree.AbstractInsnNode;
 import org.objectweb.asm.tree.ClassNode;
